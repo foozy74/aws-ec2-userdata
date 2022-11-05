@@ -5,6 +5,7 @@ yum install -y httpd mariadb-server git awscli
 systemctl start httpd
 systemctl enable httpd
 cd /tmp && git clone https://github.com/foozy74/aws-ec2-userdata/ 
+cp -R  css /var/www/html/
 cp index.php /var/www
 usermod -a -G apache ec2-user
 chown -R ec2-user:apache /var/www
