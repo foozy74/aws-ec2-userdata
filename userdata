@@ -1,0 +1,13 @@
+#!/bin/bash
+yum update -y
+amazon-linux-extras install -y php7.2 
+yum install -y httpd mariadb-server git awscli
+systemctl start httpd
+systemctl enable httpd
+usermod -a -G apache ec2-user
+chown -R ec2-user:apache /var/www
+chmod 2775 /var/www
+find /var/www -type d -exec chmod 2775 {} \;
+find /var/www -type f -exec chmod 0664 {} \;
+cd /var/www/html && git clone https://github.com/foozy74/aws-ec2-userdata/ 
+echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
