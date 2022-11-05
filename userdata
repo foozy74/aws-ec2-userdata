@@ -1,7 +1,10 @@
 #!/bin/bash
 yum update -y
 amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
-yum install -y httpd mariadb-server git awscli
+yum install -y httpd mariadb-server git awscli chrony
+echo "server 169.254.169.123 prefer iburst minpoll 4 maxpoll 4" > /etc/chrony.conf
+systemctl start chronyd
+systemctl enable chronyd
 systemctl start httpd
 systemctl enable httpd
 cd /tmp && git clone https://github.com/foozy74/aws-ec2-userdata/ 
