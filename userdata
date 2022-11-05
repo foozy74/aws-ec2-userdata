@@ -6,7 +6,7 @@ systemctl start httpd
 systemctl enable httpd
 cd /tmp && git clone https://github.com/foozy74/aws-ec2-userdata/ 
 cp -r /tmp/aws-ec2-userdata/css /var/www/html/
-cp index.php /var/www
+cp /tmp/aws-ec2-userdata/index.php /var/www/html/
 usermod -a -G apache ec2-user
 chown -R ec2-user:apache /var/www
 chmod 2775 /var/www
