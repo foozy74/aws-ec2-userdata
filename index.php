@@ -4,11 +4,6 @@ ini_set('display_errors', 'On');
 //error_reporting(E_ALL | E_STRICT);
 error_reporting(E_ALL);
 
-// Credit
-$author_name = 'AlphaMusk';
-$author_version = 'v1.3';
-$author_email = 'alphamusk@networkpulse.com';
-$author_project = 'AWS Metadata PHP Page';
 
 // Dont use dashes - in declaring variables, break them, no idea.
 // Be sure to end all http URLs with /, or some wont render data.
@@ -22,7 +17,6 @@ $meta_data['public-hostname'] = $public_hostname = exec($curl_cmd." http://".$me
 $meta_data['public-ipv4'] = $public_ipv4 = exec($curl_cmd." http://".$meta_host."/latest/meta-data/public-ipv4/");
 $meta_data['local-hostname'] = $local_hostname = exec($curl_cmd." http://".$meta_host."/latest/meta-data/local-hostname/");
 $meta_data['local-ipv4'] = $local_ipv4 = exec($curl_cmd." http://".$meta_host."/latest/meta-data/local-ipv4/");
-$git_url = 'https://github.com/alphamusk/aws-metadata-php-page';
 $S3_url = "https://s3-us-west-1.amazonaws.com/networkpulse/com/public/images";
 $S3_image = "$S3_url.aws.png";
 $server_name = $_SERVER['SERVER_NAME'];
